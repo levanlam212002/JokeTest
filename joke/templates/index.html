@@ -1,0 +1,25 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if joke %}
+    <div class="border-bottom">
+        <p class="text-center">{{ joke.content }}</p>
+    </div>
+     <form method="post" action="{{url_for('funny', joke_id=joke.id)}}">
+    <div class="row py-4">
+        <div class="col text-end">
+            <input type="submit" value="This is Funny!"  class="btn btn-primary" />
+        </div>
+        <div class="col">
+            <input type="submit" value="This is not Funny."  class="btn btn-success" />
+        </div>
+    </div>
+    </form>
+    {% else %}
+    <div>
+        <p class="text-center">It's all joke today, see you tomorrow!!!</p>
+    </div>
+     {% endif %}
+</div>
+{% endblock %}
